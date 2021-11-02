@@ -1,0 +1,93 @@
+
+
+body{
+    margin:0;
+    padding: 0;
+    font-family: sans-serif;
+    background:url(Eifil.jpg) ;
+
+    background-size: 50%;
+}
+/*.col-md-8{
+    display: flex;
+    width:100%;
+    align-content: center;
+
+    background-color:#00000066;
+    align-self: center;
+    position: absolute;
+   top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    color: white;
+}*/
+.trans-box {
+    margin-top: 20ch;
+    margin-left: 50ch;
+    margin-right: 50ch;
+    margin-bottom: 2ch;
+    background-color:#0c0c0cad;
+
+}
+.col-md-8{
+    margin-top: 20ch;
+    margin-inline: 20ch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    color: white;
+
+
+    }
+
+.col-md-8 h1{
+
+    font-size: 25px;
+    text-align: left;
+    border-bottom: 5px solid #54e454;
+    margin-bottom: 20px;
+    padding: 2px 0;
+    text-decoration-color: white;
+}
+
+.col-md-8 .form-group{
+   padding-top: 10px;
+
+}
+.col-md-8 .form-group .a-form-label{
+    font-size: 14px;
+}
+.col-md-8 .form-group .fill-white{
+
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(247deg) brightness(104%) contrast(103%);
+    align-self: flex-start;
+
+}
+
+.warning{
+    color: white;
+    margin-top: 2ch;
+    margin-left: 10ch;
+    font-size: 15px;
+
+}
+.buttons{
+    margin-top: 2ch;
+    margin-left: 20ch;
+    padding-block: 10px;
+    }
+.buttons signup{
+    margin-left: 10ch;
+    padding-left: 5ch;
+}
+.buttons login{
+    padding-left: 3ch;
+    margin-left: 3ch;
+}
+.buttons pass_reset {
+    padding-left: 10ch;
+    padding-bottom: 5ch;
+    color: blue;
+}

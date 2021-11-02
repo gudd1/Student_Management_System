@@ -1,0 +1,279 @@
+<html xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            text-align: center;
+        }
+
+        table {
+            width: 40%;
+            background-color: #f1f1c1;
+        }
+
+        table {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <center>
+        <table>
+            <caption><b><font size = 5 >SEMS</caption></b></font>
+                  <thread><tr>
+                      <th colspan="6"  ><div><label type="text">2021-2022 SESSION     -</label><label type="text"> ANNUAL REPORT CARD</label> </div>
+                      <label type="text">Name :</label> <label type="text">XXXXX</label>
+                      </th>
+                  </tr>
+                <tr>
+                    <th>SUBJECTS</th>
+                    <th>FULL MARK</th>
+                    <th>PASS MARK</th>
+                    <th>MARK OBTAINED</th>
+                     <th>GRADE</th>
+                    <th>Grade Calculation</th>
+
+                </tr></thread>
+            <thread><tr>
+                    <td>
+                        <input type="text" placeholder="" id='s'/>
+                    </td>
+                    <td>
+                        <input type="number" placeholder="" id='m'  />
+                    </td>
+                    <td>
+                        <label ></label>
+                    </td>
+                    <td>
+                        <label type="number" placeholder="" id='m3'></label>
+                    </td>
+                    <td>
+                        <label input type="key" size="6" placeholder="" id='t' </label>
+                    </td>
+                <td rowspan="11"><label type="text" >placeholder="rttyty"</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label type="text" placeholder="" id='s2'>  </label>
+                    </td>
+                    <td>
+                        <label type="number" size="6" placeholder="" id='m2'>  </label>
+                    </td>
+                    <td>
+                        <label type="number" size="6" placeholder="" id='c2'>  </label>
+                    </td>
+                    <td>
+                        <label type="number" size="6" size="6" placeholder="" id='t'>  </label>
+                    </td>
+                    <td>
+                        <label size="6" type="key"  placeholder="" id='t2'> </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label type="text"  placeholder="" id='s3' />
+                    </td>
+                    <td>
+                        <label type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <label type="number" size="6" placeholder="" id='c3'  />
+                    </td>
+                    <td>
+                        <label type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <label type="key" size="6"  placeholder="" id='t3' />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label type="text" placeholder="" id='s4'  />
+                    </td>
+                    <td>
+                        <label type="number" size="6" placeholder="" id='m4' />
+                    </td>
+                    <td>
+                        <label type="number" size="6" placeholder="" id='c4'  />
+                    </td>
+                    <td>
+                        <label type="number" size="6" placeholder="" id='m3'></label>
+                    </td>
+                    <td>
+                        <label type="key" size="6" onkeypress='calculate4();' placeholder="" id='t4' />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="" id='s5'  />
+                    </td>
+                    <td>
+                        <input type="number" placeholder="" id='m5'  />
+                    </td>
+                    <td>
+                        <input type="number" placeholder="" id='c5'  />
+               </td><td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="key" size="6" onkeypress='calculate5();' placeholder="" id='t5' />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="" id='s6'  />
+                    </td>
+                    <td>
+                        <input type="number" placeholder="" id='m6'  />
+                    </td>
+                    <td>
+                        <input type="number" placeholder="" id='c6'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="key" size="6" onkeypress='calculate6();' placeholder="" id='t6' />
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        <input type="text"  placeholder="" id='s3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='c3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="key" size="6" onkeypress='calculate3();' placeholder="" id='t3' />
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        <input type="text"  placeholder="" id='s3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='c3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="key" size="6" onkeypress='calculate3();' placeholder="" id='t3' />
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        <input type="text"  placeholder="" id='s3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='c3' />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="key" size="6" onkeypress='calculate3();' placeholder="" id='t3' />
+                    </td>
+                </tr>
+                     <tr>
+                    <td>
+                        <input type="text"  placeholder="" id='s3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3' />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='c3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="key" size="6" onkeypress='calculate3();' placeholder="" id='t3' />
+                    </td>
+                </tr>
+                     <tr>
+                    <td>
+                        <input type="text"  placeholder="" id='s3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='c3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="key" size="6" onkeypress='calculate3();' placeholder="" id='t3' />
+                    </td>
+                     </tr></thread>
+                <tr><th colspan="5"><div><label type="text" >Total Mark :</label> <label type="text" >90</label></div>
+                <div><label type="text" >Final Grade :</label> <label type="text" >A</label></div>
+                </th></tr>
+
+        </table>
+        <br/>
+        <br/>
+
+        <img id='pic' src="1.gif" style="width: 30%">
+        <br/>
+        <br/>
+        <button type="submit" onclick="window.print()" name="print" id="print"> Print! </button>
+        <br/>
+        <br/>
+        <b><font size = 1 >Tip: press enter at the level of total cell (or total input) to get results.</b></font>
+        <br/><b><font size = 1 >- Few student fields for prove implementation.</b></font>
+        <br/><b><font size = 1 >- No full page loading or response needed to get results.</b></font>
+        <br/><b><font size = 1 >NB: Do not refresh page during or after form filling.</b></font>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+        <div style="background-color:black; color:white; padding:1px;">
+
+            UPGRADE COMING SOON!
+        </div>
+
+    </center>
+</body>
+
+</html>

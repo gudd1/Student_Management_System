@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+
+
+   {{ form.as_p }}
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+     <!---<link rel="stylesheet" type="text/css"  href="{% static 'account/bootstrap.css' %}"/>-->
+     <link rel="stylesheet" type="text/css" href="{% static 'account/ss.css' %}"/>
+
+<!---<link rel="stylesheet" href="style.css"/>--->
+</head>
+<body>
+    <div class="buttons">
+          <button type="submit" class="Back to login" onclick="location.href='/'">Home</button>
+          <button type="submit" class="Back to login" onclick="location.href='/login/'">login</button>
+    </div>
+    <form action="{% url 'DoRegister' %}" method="POST" >
+             {% csrf_token %}
+     <div class="trans-box">
+     <div class="col-md-8">
+
+         <h1>Register</h1>
+         <div class="form-group">
+             <label for="username" class="a-form-label">Your ID</label>
+             <input type="text" placeholder="your id" name="username" class="form-control" required="required"/>
+         </div>
+         <div class="form-group">
+             <label for="student_name" class="a-form-label">First Name</label>
+             <input type="text" placeholder="first name" name="first_name" class="form-control" required="required" /></div>
+         <div>
+             <label for="student_name" class="a-form-label">Last Name</label>
+             <input type="text " placeholder="last name." name="last_name" class="form-control" required="required"/>
+         </div>
+         <!---<div class="form-group">
+
+            <label for="student_name" class="a-form-label">Your name</label>
+            <input type="text" placeholder="Enter your name" name="Name" class="form-control" required="required"/>
+        </div>--->
+
+        <div class="form-group">
+            <label for="student_password" class="a-form-label">Password</label>
+            <input type="password" placeholder="password" id="Password" name="Password" class="form-control" required="required"/>
+
+        </div>
+         <div class="form-group">
+             <label for="student_name" class="a-form-label">Re-Enter Password</label>
+            <input type="password" placeholder="re-enter" id="Re-password" name="Re-password" class="form-control" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="student_name" class="a-form-label">E-mail</label>
+            <input type="E-mail" placeholder="E-mail" name="E-mail" class="form-control" required="required"/>
+         </div>
+         {% csrf_token %}
+
+         {{form.NUMS}}
+        <!---<div class="form-group">
+             <label for="student_name" class="a-form-label">Phone no.</label>
+             <input type="digit " placeholder="Phone" name="Phone" class="form-control" required="notrequired"/>
+
+        </div>-->
+
+     </div>
+         {% for message in messages %}
+         <div class="warning">
+         <label class="text-danger">{{message }}</label>
+         </div>
+         {% endfor %}
+      <div class="buttons">
+          <button type="submit" class="signup" >Sign Up</button>
+
+         </div>
+
+</div></form>
+</body>
+{% block custom_js %}
+<script>
+    $("#id_Re_password").keyup(function() {
+        var renter_password = $("#id_Re_password").val();
+        var password = $("#id_Password").val();
+        if (password == renter_password) {
+            $(".password_error").remove();
+            $("<span class='password_error' style='color: green; padding: 2px; font-weight: bold;'> matched! </span>").insertAfter("#id_Re_password")
+        } else {
+            $(".password_error").remove();
+            $("<span class='password_error' style='color: red; padding: 2px; font-weight: bold;'> didn't match</span>").insertAfter("#id_Re_password")
+        }
+    })
+</script>
+{% endblock %}
+</html>

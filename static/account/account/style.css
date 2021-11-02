@@ -1,0 +1,71 @@
+
+
+body{
+    margin:0;
+    padding: 0;
+    font-family: sans-serif;
+    background: url(Eifil.jpg);
+    background-size: cover;
+}
+
+.col-md-8{
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    background-color: #000000;
+    border: 1px solid black;
+    color: black;
+    opacity: 0.6;
+}
+
+.col-md-8 h1{
+    width: 40%;
+    font-size: 30px;
+    border-bottom: 5px solid #54e454;
+    margin-bottom: 20px;
+    padding: 1px 0
+}
+/*.col-md-8 div{
+    float: left;
+    font-size: 40px;
+    border-bottom: 5px solid;
+    padding: 5px 0
+}*/
+.form-group{
+    width: 93%;
+    overflow: hidden;
+    font-size: 28px;
+    padding: 1px 0;
+    margin-top: 2px ;
+
+    border-bottom: 1px solid #4caf50;
+}
+/*.form-group i{
+    width: 26px;
+    float: left;
+    text-align: center;
+    }*/
+
+
+.from-group input{
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 18px;
+    width: 80px;
+    float: left;
+    margin: 0 10px;
+}
+.login {
+    width: 50%;
+
+    object-position: center;
+
+    background: none;
+    border: 2px solid #4caf50;
+    color: white;
+    pedding:5px
+}

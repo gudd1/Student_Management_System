@@ -1,0 +1,88 @@
+{% include "password_base.html" %}
+
+{% block content %}
+
+<button type="submit" class="Back to login" onclick="location.href='/'">Home</button>
+    <button type="submit" class="Back to login" onclick="location.href='/reset_password/'">Back</button>
+
+<body onload="timer(5)">
+<div><h1>Enter OTP</h1></div>
+<script type="text/javascript" charset="utf-8">
+
+let timerOn = true;
+
+function timer(remaining) {
+  /*document.getElementById('resend').disabled = true;
+
+  document.getElementById('field').disabled = false;
+  document.getElementById('submit').disabled = false;*/
+
+  var m = Math.floor(remaining / 60);
+  var s = remaining % 60;
+
+  m = m < 10 ? '0' + m : m;
+  s = s < 10 ? '0' + s : s;
+  //document.getElementById('timer').innerHTML = m + ':' + s;
+  //document.getElementById('time_left').innerHTML = "Time left = " + m +':'+s;
+  /*if ((m==0 && s==0)){
+
+     document.getElementById('resend').disabled = false;
+     document.getElementById('field').disabled = true;
+     document.getElementById('submit').disabled = true;
+     document.getElementById('submit').innerHTML ='Resend OTP';
+
+     }
+  else{
+     document.getElementById('time_left').innerHTML = "Time left = " + m +':'+s;}*/
+  remaining -= 1;
+
+  if(remaining >= 0 && timerOn) {
+    setTimeout(function() {
+        timer(remaining);
+    }, 1000);
+    //return;
+  }
+
+  //if(!timerOn) {
+    // Do validate stuff here
+    //return;
+  //}
+
+  // Do timeout stuff here
+  //alert('Timeout for otp');
+} </script>
+<!---<input type=Reset onclick=timer(120)> <br>--->
+
+  <!---<hi id="timer"></hi> <br>--->
+
+<!---<div>Time left = <hi id="timer" ></hi></div>--->
+
+
+{% csrf_token %}
+
+    <form action="{% url 'verify_otp' key %}" method="post">
+{% csrf_token %}
+
+<div>
+<input type="text" placeholder="OTP" name="OTP" id="field"  class="form-control" required="required"/>
+    {% for message in messages %}
+
+            <label class="text-danger" style="color: wheat;margin-left: 5ch">{{ message }}</label>
+        {% endfor %}
+</div>
+
+
+
+
+
+    <div class="Button">
+        <button type="submit" id="submit"  value="Submit" > Verify</button></div></form>
+<!---<form action="resend" method="POST">
+
+    <button type="submit" id="resend" value="Resend OTP" >Resend OTP</button>
+</form>--->
+<!---<div><a type="text" href= "../otp_varification/" style="color: white;">Didn't get OTP</a> </div>--->
+
+
+</body>
+{% endblock %}

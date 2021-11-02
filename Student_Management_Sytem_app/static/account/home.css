@@ -1,0 +1,46 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background:url(blue.jpeg);
+    background-size:cover;
+    font-family: sans-serif;
+    image-rendering: pixelated;
+
+    image-rendering: pixelated;
+    }
+.header-container .schoolname-container .header-schoolname{
+    color: black;
+    font-size: 3.125rem;
+
+    line-height: 1.2;
+    font-weight: 400;
+    font-family: "EB Garamond", serif;
+    font-family: 'EB Garamond', serif;
+    font-variant: small-caps;
+
+}
+.header-container .schoolname-container .footer-schoolname{
+    padding-left: 3ch;
+    color: white;
+}
+.home-box-quicklinks-container .home-box-quicklink .home-box-quicklin-3{
+    background-image: url("601X592.jpg");
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all .3s ease-in-out;
+}
+.home-box-quicklink .home-box-quicklin-2{
+    background-image: url("601X592.jpg");
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all .3s ease-in-out;
+}
+
+.pom-container .home-section-title{
+    color:white;
+}

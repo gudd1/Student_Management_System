@@ -1,0 +1,407 @@
+<html xmlns="http://www.w3.org/1999/html">
+<style>
+    input{
+        background-color: rgba(0,0,0,0.1);
+        color: black;
+        border: none;
+    }
+
+</style>
+<head>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            text-align: center;
+        }
+
+        table {
+            width: 40%;
+            background-color: #ffe7e7;
+        }
+
+        table {
+            text-align: center;
+        }
+        input{
+            background-color:#ffe7e7 ;
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        function Print() {
+    window.print();
+}
+
+function calculate() {
+    var j = document.getElementById('s').value;
+    var e = document.getElementById('m').value;
+    var s = document.getElementById('c').value;
+    var u = document.getElementById('t').value;
+    var g = e * s;
+    document.getElementById('t').value = g;
+    document.getElementById('s').value = j;
+}
+
+function calculate2() {
+    var j2 = document.getElementById('s2').value;
+    var e2 = document.getElementById('m2').value;
+    var s2 = document.getElementById('c2').value;
+    var u2 = document.getElementById('t2').value;
+    var g2 = e2 * s2;
+    document.getElementById('t2').value = g2;
+    document.getElementById('s2').value = j2;
+}
+
+function calculate3() {
+    var j3 = document.getElementById('s3').value;
+    var e3 = document.getElementById('m3').value;
+    var s3 = document.getElementById('c3').value;
+    var u3 = document.getElementById('t3').value;
+    var g3 = e3 * s3;
+    document.getElementById('t3').value = g3;
+    document.getElementById('s3').value = j3;
+}
+
+function calculate4() {
+    var j4 = document.getElementById('s4').value;
+    var e4 = document.getElementById('m4').value;
+    var s4 = document.getElementById('c4').value;
+    var u4 = document.getElementById('t4').value;
+    var g4 = e4 * s4;
+    document.getElementById('t4').value = g4;
+    document.getElementById('s4').value = j4;
+}
+
+function calculate5() {
+    var j5 = document.getElementById('s5').value;
+    var e5 = document.getElementById('m5').value;
+    var s5 = document.getElementById('c5').value;
+    var u5 = document.getElementById('t5').value;
+    var g5 = e5 * s5;
+    document.getElementById('t5').value = g5;
+    document.getElementById('s5').value = j5;
+}
+
+function calculate6() {
+    var j6 = document.getElementById('s6').value;
+    var e6 = document.getElementById('m6').value;
+    var s6 = document.getElementById('c6').value;
+    var u6 = document.getElementById('t6').value;
+    var g6 = e6 * s6;
+    document.getElementById('t6').value = g6;
+    document.getElementById('s6').value = j6;
+}
+    </script>
+</head>
+
+<body>
+<div style="background-color:black; color:white; text-align: center; padding:1px;">
+
+         DO NOT REFRESH THE PAGE WHILE FILLING THE FORM.
+        </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <form method="POST" action="{% url 'save_report_card' %}">
+    <center>{% csrf_token %}
+        <table id="myTable">
+            <caption><b style="font-size: 25px;" ><font size = 5 >Saraswati English Medium School,Purunapani</font></b></caption>
+                  <thread><tr>
+
+                      <th colspan="6"  ><div><input type="number" size="10" placeholder="2020-2021" id='session'style="font-size: 18px;" /><label type="text" style="font-size: 18px;">SESSION   .</label><label type="text" style="font-size: 22px;"> ANNUAL REPORT CARD</label> </div>
+                      <label>ID :</label><label type="text">{{student.username}} </label>
+                          <label style="margin-left: 10ch">Name :</label><label type="text">{{ student.first_name }}</label><label type="text" style="margin: 2ch;">{{ student.lastt_name }}</label>
+                          <label style="margin-left: 10ch">Teacher Name :</label><label type="text">{{ teacher.first_name }}</label><label type="text" style="margin: 2ch;">{{ teacher.last_name }}</label>
+                      </th>
+                  </tr>
+                <tr>
+                    <th>SUBJECTS</th>
+                    <th>FULL MARK</th>
+                    <th>PASS MARK</th>
+                    <th>MARK OBTAINED</th>
+                     <th>GRADE</th>
+                    <th>Grade Calculation</th>
+
+                </tr></thread>
+            <tbody>{% for subject in subjects %}
+                   <tr>
+                    <td>
+                        <label type="text"  id='a' name="a">{{ subject.subject_name }} </label>
+                    </td>
+                    <td>
+                        <input type="number" placeholder="" id='b' name="b"  />
+                    </td>
+                    <td>
+                        <input type="number" placeholder="" id='c' name="c" />
+                    </td>
+                    <td>
+                        <input type="number" placeholder="" id='d' name="d" />
+                    </td>
+                    <td>
+                        <input type="key" size="6" onkeypress='calculate();' placeholder="" id='e' />
+                    </td>
+                <!---<td rowspan="11"><label type="text" >placeholder="rttyty"</label></td>--->
+                   </tr>{% endfor %}</tbody>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="" id='s2'  />
+                    </td>
+                    <td>
+                        <input calss="cell" type="number" size="6" placeholder="" id='m2'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='c2'  />
+                    </td>
+                    <td>
+                        <input  type="number" size="6" size="6" placeholder="" id='t'  />
+                    </td>
+                    <td>
+                        <input size="6" type="key" onkeypress='calculate2();' placeholder="" id='t2' />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text"  placeholder="" id='s3' />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='c3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="key" size="6" onkeypress='calculate3();' placeholder="" id='t3' />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="" id='s4'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m4' />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='c4'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="key" size="6" onkeypress='calculate4();' placeholder="" id='t4' />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="" id='s5'  />
+                    </td>
+                    <td>
+                        <input type="number" placeholder="" id='m5'  />
+                    </td>
+                    <td>
+                        <input type="number" placeholder="" id='c5'  />
+               </td><td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="key" size="6" onkeypress='calculate5();' placeholder="" id='t5' />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="" id='s6'  />
+                    </td>
+                    <td>
+                        <input type="number" placeholder="" id='m6'  />
+                    </td>
+                    <td>
+                        <input type="number" placeholder="" id='c6'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="key" size="6" onkeypress='calculate6();' placeholder="" id='t6' />
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        <input type="text"  placeholder="" id='s3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='c3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="key" size="6" onkeypress='calculate3();' placeholder="" id='t3' />
+                    </td>
+                </tr>
+                <!--- <tr>
+                    <td>
+                        <input type="text"  placeholder="" id='s3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='c3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="key" size="6" onkeypress='calculate3();' placeholder="" id='t3' />
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        <input type="text"  placeholder="" id='s3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='c3' />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="key" size="6" onkeypress='calculate3();' placeholder="" id='t3' />
+                    </td>
+                </tr>
+                     <tr>
+                    <td>
+                        <input type="text"  placeholder="" id='s3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3' />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='c3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="key" size="6" onkeypress='calculate3();' placeholder="" id='t3' />
+                    </td>
+                </tr>
+                     <tr>
+                    <td>
+                        <input type="text"  placeholder="" id='s3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='c3'  />
+                    </td>
+                    <td>
+                        <input type="number" size="6" placeholder="" id='m3'  />
+                    </td>
+                    <td>
+                        <input type="key" size="6" onkeypress='calculate3();' placeholder="" id='t3' />
+                    </td>
+                     </tr>--->
+
+                <tr><th colspan="5"><div><label type="text" >Total Mark :</label> <label type="text" ></label></div>
+                <div><label type="text" >Final Grade :</label> <label type="text" ></label></div>
+                </th></tr>
+                <tr><th colspan="6" rowspan="3"><label>Class Teacher Signature</label></th></tr>
+        </table>
+        <br><br>
+        <button id="convert">
+      Convert to image
+      </button>
+      <div id="result">
+         <!-- Result will appear be here -->
+      </div>
+      <script type="text/javascript" src="https://github.com/niklasvh/html2canvas/releases/download/0.5.0-alpha1/html2canvas.js"></script>
+      <script>
+         //convert table to image
+         function convertToImage() {
+            var resultDiv = document.getElementById("result");
+            html2canvas(document.getElementById("myTable"), {
+                onrendered: function(canvas) {
+                    var img = canvas.toDataURL("image/png");
+                    result.innerHTML = '<a download="test.png" href="'+img+'">test</a>';
+                    }
+            });
+         }
+         //click event
+         var convertBtn = document.getElementById("convert");
+         convertBtn.addEventListener('click', convertToImage);
+      </script>
+
+
+
+        <br/>
+        <br/>
+
+        <!---<img id='pic' src="1.gif" style="width: '30%'">--->
+        <br/>
+        <br/>
+        <button type="submit" onclick="{% url 'save_report' %}" name="save" id="save"> save </button>
+        <button type="submit" onclick="window.print()" name="print" id="print"> Print! </button></center></form>
+        <br/>
+        <br/>
+
+
+            <br/><b><font size = 1 >NB: Do not refresh page during or after form filling.</font></b>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+<div>
+    <input type="text" placeholder="check" id='ckeck'  name="check"/></div>
+
+
+    </center>
+</body>
+
+</html>
+{% block custom_js %}
+    <script>
+    $(document).ready(function(){
+        /*$("#id_myTable").find('tbody tr').each(function(){*/
+        $("#id_check").keyup(function(){
+
+    /*$('#myTable').find('tbody tr').each(function(){*/
+        /*var row=$(this);*/
+        var FM =$(this).val();
+        /*FM=$.trim(row.find("#b").val());*/
+        if(FM!=""){
+           $.ajax({
+                        url : '{% url 'take_input' %}',
+                        type : 'POST',
+                        data : {fm:FM}
+        })   }}) })
+
+
+    </script>
+
+{% endblock custom_js %}

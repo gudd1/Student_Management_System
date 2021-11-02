@@ -1,0 +1,135 @@
+<html xmlns="http://www.w3.org/1999/html">
+<style>
+    input{
+        background-color: rgba(0,0,0,0.1);
+        color: black;
+        border: none;
+    }
+
+</style>
+<head>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        table {
+
+            width: 75%;
+
+            background-color: #ffe7e7;
+        }
+
+        table {
+            text-align: center;
+        }
+        input{
+            background-color:#ffe7e7 ;
+            text-align: center;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <br/>
+    <br/>
+    <form method="POST">
+    <center>{% csrf_token %}
+        <table id="myTable">
+            <caption><b style="font-size: 25px;" ><font size = 5 >Saraswati English Medium School,Purunapani</font></b></caption>
+                  <thread><tr>
+
+                      <th colspan="6"  ><div><label type="text" style="font-size: 18px;">{{ year }}  SESSION   .</label><label type="text" style="font-size: 22px;"> {{ test }} REPORT CARD</label> </div>
+                          <label type="text">{{course}} </label>
+                          <label style="margin-left: 10ch">ID :</label><label type="text">{{student_userid}} </label>
+                          <label style="margin-left: 10ch">Name :</label><label type="text">{{ student_name }}</label>
+                          <label style="margin-left: 10ch">Teacher Name :</label><label type="text">{{ teacher_name}}</label>
+                      </th>
+                  </tr>
+
+                <tr>
+                    <th>SUBJECTS</th>
+                    <th>FULL MARK</th>
+                    <th>PASS MARK</th>
+                    <th>MARK OBTAINED</th>
+                    <th>GRADE</th>
+                    <th>Grade Calculation</th>
+
+                </tr></thread>
+            <tbody>
+
+                   {% for subject,fullmark,passmark,obtained,grade in pool %}
+                   <tr aria-colspan="5">
+
+                       <td>
+                        <label type="text"  id='subject' name="subject">{{ subject }} </label>
+                    </td>
+                    <td>
+                        <label  id='fullmark' name="fullmark">{{ fullmark }}  </label>
+                    </td>
+                    <td>
+                        <label type="number" id='passmark' name="passmark">{{ passmark }} </label>
+                    </td>
+                    <td>
+                        <label id='obtained' name="obtained">{{ obtained }}</label>
+                    </td>
+                    <td>
+                        <label id="grade"  name="grade">{{ grade }}</label>
+                    </td>
+
+                <!---<td rowspan="11"><label type="text" >placeholder="rttyty"</label></td>--->
+                   </tr>{% endfor %}</tbody>
+
+                <tr><th colspan="6"><div><label type="text" >Total Mark :</label> <label type="text" ></label></div>
+                <div><label type="text" >Final Grade :</label> <label type="text" ></label></div>
+                </th></tr>
+                <tr><th colspan="6" rowspan="3"><label>Class Teacher Signature</label></th></tr>
+        </table>
+        <br><br>
+        <button id="convert">
+      Convert to image
+      </button>
+      <div id="result">
+         <!-- Result will appear be here -->
+      </div>
+      <script type="text/javascript" src="https://github.com/niklasvh/html2canvas/releases/download/0.5.0-alpha1/html2canvas.js">
+
+
+         function convertToImage() {
+            //var resultDiv = document.getElementById("result");
+            html2canvas(document.getElementById("myTable"), {
+                onrendered: function(canvas) {
+                    var img = canvas.toDataURL("image/png");
+                    result.innerHTML = '<a download="test.png" href="'+img+'">test</a>';
+                    }
+            });
+         }
+         //click event
+         var convertBtn = document.getElementById("convert");
+         convertBtn.addEventListener('click', convertToImage);
+      </script>
+       <br/>
+        <br/>
+        <button type="submit" onclick="window.print()" name="print" id="print"> Print! </button></center></form>
+
+    </center>
+</body>
+
+</html>

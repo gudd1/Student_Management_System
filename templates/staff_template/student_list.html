@@ -1,0 +1,176 @@
+{% extends 'staff_template/base_template.html' %}
+{% block main_content %}
+
+{% load static %}
+<body onload="myFunction()">
+
+<section class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <form method="POST" >
+                    {% csrf_token %}
+                    <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Student List</h3>
+                    </div>
+                    <!-- /.card-header -->
+
+
+
+                                <div class="form-group">
+                                <div class="col-12">
+                                  <table  width="900">
+                                     <thead><tr>
+                                         <th>STUDENT ID</th>
+                                         <th width="40%">STUDENT NAME</th>
+                                         <th width="15%">CREATE CARD</th>
+                                         <th width="15%">REPORT CARD</th>
+                                     </tr></thead>
+                                      <tbody id="tbody">
+                                      <!---{% for student in students %}
+                                                 <tr>
+                                                 <th width="30%"><label>{{ student.admin.username }}</label></th>
+                                                 <th width="40%"><label>{{ student.admin.first_name }}</label><label style="margin-left: 2ch">{{ student.admin.last_name }}</label></th>
+                                                 <th width="15%" ><button type="button" class="btn btn-primary"  aria-label="Close" onclick="location.href='{% url 'student_report_card' student.admin.id %}'">Create</button></th>
+                                                 <th width="15%" style="text-align: center"><label>car</label></th>
+                                                 </tr>
+                                                 {% endfor %}-->
+                                      </tbody>
+
+                                  <script >
+                                     function myFunction() {
+                                        var i=0;
+                                        var html='{% for student in students %}'+
+                                                 '<tr>'+
+                                                 '<th width="30%"><label>{{ student.admin.username}}</label></th>'+
+                                                 '<th width="40%"><label> {{ student.admin.first_name}}</label><label style="margin-left: 2ch"> {{ student.admin.last_name }}</label></th>'+
+                                                 '<th width="15%"><button type="button" class="btn btn-primary" id="create'+ ++i + '" aria-label="Close" onclick="location.href='+"'{% url 'student_report_card' student.admin.id %}'"+'">Create</button></th>'+
+                                                 '<th width="15%" style="text-align:"><button type="button" class="btn btn-primary" id="edit'+ i +'" aria-label="Close" onclick="location.href='+"'{% url 'edit_report_card' student.admin.id %}'"+'">Edit</button></th>'+
+                                                 '<th width="15%" style="text-align:"><button type="button" class="btn btn-primary" id="delete'+ i +'" aria-label="Close" onclick="FunDelete('+i+',{{ student.admin.id }});">Delete</button></th>'+
+                                                 '</tr>'+
+                                                '{% endfor %}'
+
+                                                 ;
+
+
+                                         /*html +=*/
+
+                                         document.getElementById("tbody").innerHTML +=html
+                                         var j=0;
+                                         {% for student in students %}
+                                            //var data=(document.getElementById("create"+ ++j)).innerText;
+                                             var id={{ student.admin.id }};
+                                            $.ajax({
+                                               url:'{% url 'check_ifsaved' %}',
+                                               type: 'POST',
+                                               data:{student_id:id},
+                                               success: function(response){
+                                                           console.log("success");
+                                                          },
+                                               error: function (response){
+                                                           console.log("error");
+                                                          },
+
+                                               })
+                                                .done(function(response){
+                                                        console.log(response);
+
+                                                        if(response == "True"){
+                                                            document.getElementById("edit"+ ++j ).style.display = "block";
+                                                            document.getElementById("create"+ j ).style.display = "none";
+                                                            document.getElementById("delete"+ j ).style.display = "block";
+                                                            console.log("True")
+                                                            }
+                                                        else{
+                                                            document.getElementById("create"+ ++j).style.display = "block";
+                                                            document.getElementById("edit"+ j).style.display = "none";
+                                                            document.getElementById("delete"+ j ).style.display = "none";
+                                                        }
+                                            })
+                                         {% endfor %}
+
+
+                                     }
+
+                                     function FunDelete(i,id) {
+                                         print();
+                                         var i=i;
+
+                                           $.ajax({
+                                               url:'{% url 'delete_report' %}',
+                                               type: 'POST',
+                                               data:{student_id:id},
+                                               success: function(response){
+                                                           console.log("success");
+                                                          },
+                                               error: function (response){
+                                                           console.log("error");
+                                                          },
+
+                                               })
+                                                .done(function(response){
+                                                        console.log(response);
+                                                        if(response=="True"){
+                                                            document.getElementById("create"+ i).style.display = "block";
+                                                            document.getElementById("edit"+ i).style.display = "none";
+                                                            document.getElementById("delete"+ i ).style.display = "none";
+
+                                                        }
+                                                        else{}
+                                                })
+
+
+                                     }
+                                     function  EditResult(id){
+                                         $.ajax({
+                                               url:'{% url 'edit_report' %}',
+                                               type: 'POST',
+                                               data:{student_id:id},
+                                               success: function(response){
+                                                           console.log("success");
+                                                          },
+                                               error: function (response){
+                                                           console.log("error");
+                                                          },
+
+                                               })
+
+                                     }
+                                  </script>
+
+                                  </table>
+                                </div></div>
+
+
+
+
+
+                        <!-- /.card-body -->
+
+                        <!---<div class="card-footer">
+                        <button type="button" class="btn btn-primary" id="fetch_student" >Fetch Student</button>
+                        </div>--->
+
+                        {% comment %} Displaying Students Here {% endcomment %}
+
+                        <div class="card-footer" id="student_data">
+                            <button type="button"  class="btn btn-primary" value="previous Page" onclick="javascript:history.go(-1)">back</button>
+                        </div>
+
+                    </div>
+                    </form>
+                    <!-- /.card -->
+
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+
+      </section></body>
+
+
+{% endblock main_content %}
+

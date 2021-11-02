@@ -1,0 +1,24 @@
+{% extends 'staff_template/base_template.html' %}
+
+{% block page_title %}
+   Select A Class
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+
+<section class="content" xmlns="http://www.w3.org/1999/html">
+        <div class="container-fluid">
+            <form action="" method="POST">
+           {% csrf_token %}
+               {% for course in courses %}
+
+               <a href="{% url 'student_list' course.id%}" style="margin-left: 5ch" value="{{ course.course_name }}"/>
+                   <label>{{ course.course_name }}</label>
+                {% endfor %}
+
+            </form>
+
+        </div></section>
+ {% endblock main_content %}

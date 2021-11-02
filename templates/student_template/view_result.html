@@ -1,0 +1,59 @@
+{% extends 'student_template/base_template.html' %}
+{% block main_content %}
+
+{% load static %}
+<body>
+
+    {% csrf_token %}
+<section class="content">
+        <div class="container-fluid">
+
+              <table  width="900">
+                  <thead><tr>
+                                         <!---<th>STUDENT ID</th>
+                                         <th width="40%">Annual</th>
+                                         <th width="15%">Half-Yearly</th>
+                                         <th width="15%">Test</th>--->
+                  </tr></thead>
+                  <tbody id="tbody">
+                  <tr>
+
+
+                      <th width="15%" ><button type="button" class="btn btn-primary"  aria-label="Close" onclick="location.href='{% url 'annual_result' %}'">Annual Result</button></th>
+                      <th width="15%" ><button type="button" class="btn btn-primary"  aria-label="Close" onclick="">Half-yearly Result</button></th>
+                      <th width="15%" ><button type="button" class="btn btn-primary"  aria-label="Close" onclick="">Test Result</button></th>
+                  </tr>
+
+                  </tbody>
+
+
+
+              </table>
+            <script type="text/javascript">
+    function myFunction2(){
+
+
+         $.ajax({
+             url:'{% url 'annual_result' %}',
+             type: 'POST',
+
+             success: function(response){
+                 console.log("success");
+             },
+             error: function (response){
+                 console.log("error");
+             },
+
+         })
+        return false;
+    }
+</script>
+
+
+        </div>
+
+</section></body>
+
+
+{% endblock main_content %}
+

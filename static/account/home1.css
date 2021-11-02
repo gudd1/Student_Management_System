@@ -1,0 +1,396 @@
+main.full-page {
+	max-width: none;
+	margin-bottom: 0;
+}
+
+.home-section-title {
+	font-family: 'Heebo', sans-serif;
+	font-size: 2.5rem;
+	text-transform: uppercase;
+	font-weight: 500;
+	color: #182c49;
+	text-align: center;
+	line-height: 1;
+}
+
+/********* HOME QUICK LINK BOXES *********** */
+
+.home-box-quicklinks-container {
+	display: flex;
+	margin-bottom: 35px;
+	flex-direction: column;
+}
+
+.home-box-quicklink {
+	font-family: 'Heebo', sans-serif;
+	color: #fff;
+	font-weight: 900;
+	text-shadow: 1.21px 4.851px 4.75px rgba(0, 0, 0, 0.5);
+	text-align: center;
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	height: 500px;
+}
+
+.home-box-quicklink-1 {
+	background-image: url(https://tb2cdn.schoolwebmasters.com/accnt_17549/site_399447/Graphics/graphic_quicklinks_Calendar.jpg);
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: all .3s ease-in-out;
+}
+
+.home-box-quicklink-2 {
+	background-image: url("athletics.jpg");
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: all .3s ease-in-out;
+}
+
+.home-box-quicklink-3 {
+	background-image: url(apply_now.jpg);
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: all .3s ease-in-out;
+}
+
+.home-box-quicklink-4 {
+	background-image: url(https://tb2cdn.schoolwebmasters.com/accnt_17549/site_399447/Graphics/graphic_quicklinks_SupportUs.jpg);
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: all .3s ease-in-out;
+}
+
+.home-box-quicklink-text .quicklinks-title {
+	font-size: 2.8125rem;
+	color: #fff;
+}
+
+.home-box-quicklink-text p {
+	font-size: 1.25rem;
+	line-height: 1.6;
+}
+
+.home-box-quicklink-text {
+	position: absolute;
+	bottom: -241px;
+	padding: 50px 15px;
+	transition: all .5s ease-in-out;
+	height: 300px;
+}
+
+.home-box-quicklink a:hover > div > .home-box-quicklink-text, .home-box-quicklink a:focus > div > .home-box-quicklink-text {
+	height: 86%;
+	background-color: rgba(0, 40, 87,0.6);
+	color: #fff;
+	bottom: 6px;
+}
+
+.quicklink-button {
+	color: #002857;
+	background-color: #fff;
+	text-shadow: none;
+	text-decoration: none;
+	padding: 20px 40px;
+	border-radius: 12px;
+	text-transform: uppercase;
+	display: block;
+	max-width: 185px;
+	margin: 30px auto;
+}
+
+@media screen and (min-width: 43.75em) {
+	.home-box-quicklinks-container {
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-top: 20px;
+}
+
+.home-box-quicklink {
+	width: 50%;
+}
+
+.home-box-quicklink a:hover > div > .home-box-quicklink-text, .home-box-quicklink a:focus > .home-box-quicklink-1 > .home-box-quicklink-text {
+	height: 80%;
+}
+
+
+}
+
+@media screen and (min-width: 75em) {
+	.home-box-quicklink {
+	width: 24.3%;
+	margin: auto .35%;
+}
+
+
+}
+
+/********* STAY CONNECTED *********** */
+
+.home-stayconnected-mobile {
+	text-align: center;
+}
+
+.home-stayconnected-mobile img {
+	margin-right: 10px;
+}
+
+.home-stayconnected-container {
+	display: none;
+}
+
+.home-facebook-background img, .home-twitter-background img {
+	display: none;
+}
+
+.home-twitter-container {
+	max-width: 500px;
+	margin: auto;
+}
+
+@media screen and (min-width: 48em) {
+	.home-stayconnected-mobile {
+	display: none;
+}
+
+.home-stayconnected-container {
+	display: block;
+	margin: 20px;
+	text-align: center;
+}
+
+.home-twitter-background {
+	margin-top: 50px;
+}
+
+
+}
+
+@media screen and (min-width: 75em) {
+	.home-stayconnected-container {
+	background-color: #e2e8ee;
+	display: flex;
+	margin: 20px 0;
+}
+
+.home-stayconnected-container > div {
+	width: 50%;
+}
+
+.home-twitter-background {
+	margin-top: 0px;
+}
+
+.home-twitter-container {
+	margin: 0px;
+}
+
+.home-twitter-background {
+	display: flex;
+	align-items: center;
+	border-left: 10px solid #fff;
+	padding: 20px;
+}
+
+.home-facebook-container, .home-twitter-container {
+	width: 500px;
+	border: 10px solid #fff;
+	z-index: 1;
+	background: #fff;
+}
+
+.home-facebook-background {
+	border-right: 10px solid #fff;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding-right: 20px;
+}
+
+
+}
+
+@media screen and (min-width: 81.25em) {
+	.home-facebook-background img {
+	display: inline;
+	align-self: flex-start;
+	margin-right: -62px;
+}
+
+.home-twitter-background img {
+	display: inline;
+	margin-left: -50px;
+	z-index: 0;
+}
+
+.home-twitter-background {
+	padding: 0 0 0 20px;
+}
+
+
+}
+
+/********* OUR MISSION *********** */
+
+.our-mission-container {
+	display: flex;
+	margin-top: 30px;
+	position: relative;
+	margin-bottom: 60px;
+}
+
+.our-mission-body a {
+	color: #fff;
+}
+
+.our-mission-background {
+	background-color: #002857;
+	background-image: -moz-linear-gradient( -3deg, rgb(112,167,205) 0%, rgb(56,104,146) 27%, rgb(0,40,87) 79%);
+	background-image: -webkit-linear-gradient( -3deg, rgb(112,167,205) 0%, rgb(56,104,146) 27%, rgb(0,40,87) 79%);
+	background-image: -ms-linear-gradient( -3deg, rgb(112,167,205) 0%, rgb(56,104,146) 27%, rgb(0,40,87) 79%);
+	color: #fff;
+	font-family: 'Heebo', sans-serif;
+	font-size: 1.2rem;
+	text-shadow: 1.21px 4.851px 4.75px rgba(0, 0, 0, 0.18);
+	line-height: 1.5;
+}
+
+.our-mission-title {
+	font-family: 'EB Garamond', serif;
+	font-size: 3rem;
+	text-transform: uppercase;
+	line-height: 1;
+	margin-bottom: 10px;
+}
+
+.our-mission-container img {
+	display: none;
+}
+
+.our-mission-text {
+	margin: 20px;
+}
+
+.learnMore {
+	margin: 40px 15px 40px;
+}
+
+.learnMore a {
+	font-size: 1.25rem;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-shadow: none;
+	background-color: #95bdda;
+	padding: 10px 40px;
+	border-radius: 12px;
+}
+
+.learnMore a:hover, .learnMore a:focus {
+	text-decoration: underline;
+}
+
+@media screen and (min-width: 48em) {
+	.our-mission-background {
+	width: 70%;
+}
+
+.our-mission-container {
+	margin-top: 100px;
+}
+
+.our-mission-container img {
+	display: inline;
+	position: absolute;
+	right: 0;
+	top: -50px;
+	width: 50%;
+	max-width: 1007px;
+}
+
+.our-mission-text {
+	width: 45%;
+	margin: 24px 35% 75px auto;
+}
+
+
+}
+
+@media screen and (min-width: 75em) {
+	.our-mission-title {
+	font-size: 3.5rem;
+}
+
+}
+
+@media screen and (min-width: 93em) {
+
+.our-mission-background {
+	font-size: 1.375rem;
+	line-height: 2;
+}
+
+}
+
+@media screen and (min-width: 99em) {
+	.our-mission-title {
+	font-size: 4.5rem;
+}
+
+}
+
+/********* DID YOU KNOW *********** */
+
+.didYouKnow-container {
+	font-family: 'Heebo', sans-serif;
+	display: flex;
+	color: #002857;
+	text-align: center;
+	line-height: 1.1;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.didYouKnow-title {
+	font-weight: 900;
+	text-transform: uppercase;
+	font-size: 2rem;
+	margin-bottom: 15px;
+}
+
+.didYouKnow-number {
+	font-size: 4rem;
+	font-weight: 900;
+}
+
+.didYouKnow-section {
+	width: 250px;
+	margin: 20px auto;
+	padding: 1%;
+}
+
+.didYouKnow-fact {
+	font-weight: 500;
+	text-transform: uppercase;
+	font-size: 1.25rem;
+	line-height: 1.5;
+}
+
+.didYouKnow-section img {
+	max-height: 100px;
+}
+
+@media screen and (min-width: 66em) {
+	.didYouKnow-section {
+	width: 18%;
+}
+
+
+}

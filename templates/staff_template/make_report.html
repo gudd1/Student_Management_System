@@ -1,0 +1,232 @@
+<body onload="myFunction()">
+{% load static %}
+<script src="{% static "jquery/jquery.min.js"  %}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{% static "jquery-ui/jquery-ui.min.js"  %}"></script>
+
+<br>
+<br>
+<div style="text-align: center; padding:1px;">
+<button type="submit" value="previous Page" onclick="javascript:history.go(-1)">back</button>
+</div>
+
+
+<br>
+<br>
+<div style="background-color:black; color:white; text-align: center; padding:1px;">
+
+         DO NOT REFRESH THE PAGE WHILE FILLING THE FORM.
+        </div>
+<br>
+<br>
+
+  <form id="form" method="post" action="">
+      {% csrf_token %}
+      <div class="table-class" style="text-align: center">
+    <table id="myTable" aria-colspan="2" >
+        <caption><b style="font-size: 25px;" >Saraswati English Medium School,Purunapani</b></caption>
+
+
+                <thread>
+                <tr aria-rowspan="3">
+                    <th colspan='6'><div><!---<input type='number'placeholder='2020-2021' id='session' style='font-size: 18px; width:115px;'/>---><label type='text' style='font-size: 18px;'>{{ year }} SESSION   .</label><label type='text' style='font-size: 22px;'> {{ test }} REPORT CARD</label> </div>
+                       <label>{{course.course_name}}</label>
+                        <label style='margin-left: 10ch'>Student ID :</label>
+                        <label type='text'>{{student.username}}</label>
+                          <label style='margin-left: 10ch'>Student Name :</label><label type="text">{{ student_name }}</label><label type="text" style="margin: 2ch;">{{ student.lastt_name }}</label>
+                          <!---<label style="margin-left: 20ch">Teacher Name :</label><label type="text">{{ teacher.first_name }}</label><label type="text" style="margin: 2ch;">{{ teacher.last_name }}</label>
+                      ---></th>
+                  </tr>
+                <tr>
+                    <td>Rows</td>
+                    <th>SUBJECTS</th>
+                    <th>FULL MARK</th>
+                    <th>PASS MARK</th>
+                    <th>MARK OBTAINED</th>
+                     <th>GRADE</th>
+                    <th>Grade Calculation</th>
+
+                </tr></thread>
+                <tbody id="tbody">
+
+                </tbody>
+    <!---<thead>
+    <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>City</th>
+    </tr>--->
+   </thead>
+        <tr><th colspan="6"><div><label type="text" >Total Mark :</label> <label type="text" ></label></div>
+                <div><label type="text" >Final Grade :</label> <label type="text" ></label></div>
+                </th></tr>
+        <tr><th colspan="6" rowspan="3"><label>Class Teacher  :  </label><label id="teacher" name="teacher">{{ teacher_name }}</label>
+                </th></tr>
+    </table></div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="button-group" style="text-align: center">
+      <button type="button" name="save" id="save" value="save" onclick="execute();" style="margin-left:10ch;alignment: center;" >save </button> <!--- onclick="execute(); return false;" --->
+      <span type="text" name="saved" value="saved!" id="saved" style="display:none">Saved !</span>
+      </div>
+      <br>
+
+  </form>
+
+</body>
+</html>
+<script type="text/javascript">
+  function myFunction() {
+   /*var rows = document.getElementById("table-row-num").value;*/
+   var html="<table>"+"<thead>"+
+   "<tr>" +
+
+
+
+   '</thead>' + '<tbody>';
+
+   var i=0;
+
+     html +=  "{% for subject in subjects %}"+ "<tr>"+ "<th>"+ ++i +
+             "<td><label id='subject["+i+"]'>{{ subject.subject_name }}</label>"+
+             "<td><input type='number' name='fullmark' id='fullmark["+i+"]' class='form-control input_data' placeholder='' ></td>"+
+             "<td><input type='number' name='passmark' id='passmark["+i+"]' class='form-control input_data' placeholder=''></td>" +
+             "<td> <input type='number' name='obtained class='form-control input_data' id='obtained["+i+"]' placeholder='' ></td>" +
+             "<td><input type='text' name='grade' id='grade["+i+"]' class='form-control input_data' placeholder='' ></td>"+
+
+         "</tr>"+" {% endfor %}"
+    i++;
+    var x=i;
+    var j=i+3
+
+    for (i=i; i <j; i++) {
+        html +="<tr>"+
+             "<th>"+ i +
+             "<td><input type='text' name='subject' id='subject["+i+"]' class='form-control input_data' placeholder=''></td>"+
+             "<td><input type='number' name='fullmark' id='fullmark["+i+"]' class='form-control input_data' placeholder=''></td>"+
+             "<td><input type='number' name='passmark' id='passmark["+i+"]' class='form-control input_data' placeholder=''></td>" +
+             "<td> <input type='number' name='obtained' class='form-control input_data' id='obtained["+i+"]' placeholder='' ></td>" +
+             "<td><input type='text' name='grade' id='grade["+i+"]' class='form-control input_data' placeholder=''></td>"+
+
+         "</tr>"}
+
+
+         html += "</tbody>"+"</table>";
+
+        document.getElementById("tbody").innerHTML=html
+    /*document.getElementById("save").onclick=getValue;*/
+    /*$("#id_save").onclick(getValue(i));*/
+ $("#save").data('i',i);
+ $("#save").data('x',x);
+  //alert(i);
+}
+//$("#save").on('click',function(e){
+  //$(document).on('click','.save',function(){
+    //alert("ok");
+    //print();
+  function execute(e){
+
+  var j =$("#save").data('i');
+  var x =$("#save").data('x');
+  var subjects=[];
+  var fullmarks=[];
+  var passmarks=[];
+  var obtained=[];
+  var grade=[];
+
+  var data=(document.getElementById("subject["+1+"]")).innerText;
+  var teacher=(document.getElementById("teacher")).innerText;
+
+  console.log(data);
+  var n=0;
+  for (n=1;n<x;n++){
+      subjects.push(document.getElementById("subject["+n+"]").innerText);
+  }
+      //document.getElementById("fullmark"+i+"").value ;
+  for(var i=1;i<j;i++){
+      if((n-1)<i){
+         subjects.push(document.getElementById("subject["+i+"]").value );}
+      fullmarks.push(document.getElementById("fullmark["+i+"]").value );
+      passmarks.push(document.getElementById("passmark["+i+"]").value );
+      obtained.push(document.getElementById("obtained["+i+"]").value );
+      grade.push(document.getElementById("grade["+i+"]").value );
+  }
+  console.log(subjects);
+  console.log(fullmarks);
+  console.log(passmarks);
+   console.log(obtained);
+    console.log(grade);
+   $.ajax({
+       url:'{% url 'take_input' %}',
+       type: 'POST',
+       data:{subjects:subjects, fullmarks:fullmarks,passmarks:passmarks,obtained:obtained,grade:grade,length:j-1,teacher_name:teacher},
+       success: function(response){
+                console.log("success");
+       },
+       error: function (response){
+                console.log("error");
+       },
+
+   })
+       .done(function(response){
+                        //console.log(response);
+
+                        if(response == "True"){
+                            document.getElementById("save").style.display = "none";
+                            document.getElementById("saved").style.display = "block";
+                        }
+                        else{
+
+                        }
+                    })
+      //e.preventDefault();
+     // print();
+   return false;
+  }
+
+</script>
+
+
+<html xmlns="http://www.w3.org/1999/html">
+<style>
+    input{
+        background-color: rgba(0,0,0,0.1);
+        color: black;
+        border: none;
+    }
+
+</style>
+<head>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            text-align: center;
+        }
+
+        table {
+            width: 40%;
+            background-color: #ffe7e7;
+        }
+
+        table {
+            text-align: center;
+        }
+        input{
+            background-color:#ffe7e7 ;
+            text-align: center;
+        }
+    </style>

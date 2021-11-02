@@ -1,0 +1,137 @@
+
+<body onload="myFunction()">
+{% load static %}
+<script src="{% static "jquery/jquery.min.js"  %}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{% static "jquery-ui/jquery-ui.min.js"  %}"></script>
+
+<br>
+<br>
+
+<button type="submit" value="previous Page" onclick="javascript:history.go(-1)" style="margin-left: 10ch">back</button>
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+  <form id="form" method="post" action="">
+      {% csrf_token %}
+    <div class="table-class" style="text-align: center;align-content: center;padding-left: 10ch;">
+    <table id="myTable" aria-colspan="2" >
+        <caption><b style="font-size: 25px;" >Saraswati English Medium School,Purunapani</b></caption>
+
+
+                <thread>
+                <tr aria-rowspan="3">
+                    <th colspan='6'><div><!---<input type='number'placeholder='2020-2021' id='session' style='font-size: 18px; width:115px;'/>---><label type='text' style='font-size: 18px;'>{{ year }} SESSION   .</label><label type='text' style='font-size: 22px;'> {{ test }} REPORT CARD</label> </div>
+                       <label>{{course}}</label>
+                        <label style='margin-left: 10ch'>Student ID :</label>
+                        <label type='text'>{{student_userid}}</label>
+                          <label style='margin-left: 10ch'>Student Name :</label><label type="text">{{ student_name }}</label>
+                          <!---<label style="margin-left: 20ch">Teacher Name :</label><label type="text">{{ teacher.first_name }}</label><label type="text" style="margin: 2ch;">{{ teacher.last_name }}</label>
+                      ---></th>
+                  </tr>
+                <tr>
+                    <td>Rows</td>
+                    <th>SUBJECTS</th>
+                    <th>FULL MARK</th>
+                    <th>PASS MARK</th>
+                    <th>MARK OBTAINED</th>
+                     <th>GRADE</th>
+                    <th>Grade Calculation</th>
+
+                </tr></thread>
+                <tbody id="tbody">
+
+                </tbody>
+                <script type="text/javascript">
+                     function myFunction() {
+                         var i=0;
+
+                         var html =  "{% for subject,fullmark,passmark,obtain,grade in pool %}"+ "<tr>"+ "<th>"+ ++i +
+                                     "<td contenteditable='true'><label name='subject' id='subject["+i+"]' class='form-control input_data'>{{ subject}}</label>"+
+                                     "<td contenteditable='true'><label  name='fullmark' id='fullmark["+i+"]' class='form-control input_data'>{{ fullmark }}</label></td>"+
+                                     "<td contenteditable='true'><label name='passmark' id='passmark["+i+"]' class='form-control input_data'>{{ passmark }}</label></td>" +
+                                     "<td contenteditable='true'> <label  name='obtained class='form-control input_data' id='obtained["+i+"]'>{{ obtain }}</label></td>" +
+                                     "<td contenteditable='true' ><label  name='grade' id='grade["+i+"]' class='form-control input_data'>{{ grade }}</label></td>"+
+
+                                     "</tr>"+" {% endfor %}";
+                         document.getElementById("tbody").innerHTML=html
+
+                          }
+                </script>
+
+   </thead>
+        <tr><th colspan="6"><div><label type="text" >Total Mark :</label> <label type="text" ></label></div>
+                <div><label type="text" >Final Grade :</label> <label type="text" ></label></div>
+                </th></tr>
+        <tr><th colspan="6" rowspan="3"><label>Class Teacher  :  </label><label id="teacher" name="teacher">{{ teacher_name }}</label>
+                </th></tr>
+    </table></div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="button-group" style="text-align: center">
+      <button type="button" name="save" id="save" value="save" onclick="execute();" style="margin-left:10ch;alignment: center;" >save </button> <!--- onclick="execute(); return false;" --->
+      <span type="text" name="saved" value="saved!" id="saved" style="display:none">Saved !</span>
+      </div>
+      <br>
+
+  </form>
+
+</body>
+</html>
+
+
+
+
+<html xmlns="http://www.w3.org/1999/html">
+<style>
+    input{
+        background-color: rgba(0,0,0,0.1);
+        color: black;
+        border: none;
+    }
+
+</style>
+<head>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            text-align: center;
+        }
+
+
+        table {
+
+            align-self: center;
+            width: 80%;
+            background-color: #ffe7e7;
+        }
+
+
+        table {
+            text-align: center;
+        }
+        input{
+            background-color:#ffe7e7 ;
+            text-align: center;
+        }
+
+    </style>
