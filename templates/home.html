@@ -61,12 +61,12 @@
                 <button type="submit" class="webview" id="webview" hidden="yes">web view</button>
                   <script type="text/javascript">
 		var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-		var element = document.getElementById('text');
+		//var element = document.getElementById('text');
 		if (isMobile) {
-  			element.innerHTML = "You are using Mobile";
+  			//element.innerHTML = "You are using Mobile";
                         document.getElementById('webview').disabled = false;
 		} else {
-			element.innerHTML = "You are using Desktop";
+			//element.innerHTML = "You are using Desktop";
                         document.getElementById('webview').disabled = true;
 		}
 	</script>
