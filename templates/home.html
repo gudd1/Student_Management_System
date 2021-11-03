@@ -64,8 +64,10 @@
 		var element = document.getElementById('text');
 		if (isMobile) {
   			element.innerHTML = "You are using Mobile";
+                        document.getElementById('webview').disabled = false;
 		} else {
 			element.innerHTML = "You are using Desktop";
+                        document.getElementById('webview').disabled = true;
 		}
 	</script>
 		<div class="social-container">
