@@ -58,7 +58,16 @@
 			<a href="/Support-ECHS" target="_self" class="">Donate</a><span>|</span>
 			<a href="/Contact-Us">Contact Us</a>--->
 		</div>
-
+                <button type="submit" class="webview" id="webview" hidden="yes">web view</button>
+                  <script type="text/javascript">
+		var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+		var element = document.getElementById('text');
+		if (isMobile) {
+  			element.innerHTML = "You are using Mobile";
+		} else {
+			element.innerHTML = "You are using Desktop";
+		}
+	</script>
 		<div class="social-container">
 			<a href="https://earth.google.com/web/" aria-label="Calendar"><i class="far fa-calendar-alt"></i></a>
 			<a href="https://www.linkedin.com/signup" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
