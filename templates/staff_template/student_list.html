@@ -27,7 +27,7 @@
                                 <div class="col-12">
                                   <table  width="900">
                                      <thead><tr>
-                                         <th>STUDENT ID</th>
+                                         <th width="15%">STUDENT ID</th>
                                          <th width="40%">STUDENT NAME</th>
                                          <th width="15%">CREATE CARD</th>
                                          <th width="15%">REPORT CARD</th>
@@ -50,7 +50,7 @@
                                         var i=0;
                                         var html='{% for student in students %}'+
                                                  '<tr>'+
-                                                 '<th width="30%"><label>{{ student.admin.username}}</label></th>'+
+                                                 '<th width="15%"><label>{{ student.admin.username}}</label></th>'+
                                                  '<th width="40%"><label> {{ student.admin.first_name}}</label><label style="margin-left: 2ch"> {{ student.admin.last_name }}</label></th>'+
                                                  '<th width="15%"><button type="button" class="btn btn-primary" id="create'+ ++i + '" aria-label="Close" onclick="location.href='+"'{% url 'student_report_card' student.admin.id %}'"+'">Create</button></th>'+
                                                  '<th width="15%" style="text-align:"><button type="button" class="btn btn-primary" id="edit'+ i +'" aria-label="Close" onclick="location.href='+"'{% url 'edit_report_card' student.admin.id %}'"+'">Edit</button></th>'+
