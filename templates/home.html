@@ -64,10 +64,11 @@
 		//var element = document.getElementById('text');
 		if (isMobile) {
   			//element.innerHTML = "You are using Mobile";
-                        document.getElementById('webview').disabled = false;
+                        document.getElementById('webview').style.display= "block";
 		} else {
 			//element.innerHTML = "You are using Desktop";
                         document.getElementById('webview').disabled = true;
+                         document.getElementById('webview').hidden= false;
 		}
 	</script>
 		<div class="social-container">
@@ -116,7 +117,7 @@
 	<div class="quicklink-section">
 	<a class="quicklinks-mobile" href="javascript:animatedcollapse.toggle('Collapse1')">
 	<script type="text/javascript">animatedcollapse.addDiv("Collapse1", "fade=1");</script>
-	<div class="quicklinks-mobile-title parents"><button type="submit" class="webview" id="webview" onclick="location.href='/login/'">change view</button></div></a>
+	<div class="quicklinks-mobile-title parents"><button type="submit" style="display:none;" class="webview" id="webview" onclick="location.href='/login/'">change view</button></div></a>
 
 
     </div>
