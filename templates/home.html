@@ -59,18 +59,7 @@
 			<a href="/Contact-Us">Contact Us</a>--->
 		</div>
                 <!---<button type="submit" class="webview" id="webview" size="2">web view</button>--->
-                  <script type="text/javascript">
-		var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-		//var element = document.getElementById('text');
-		if (isMobile) {
-  			//element.innerHTML = "You are using Mobile";
-                        document.getElementById('webview').style.display= "block";
-		} else {
-			//element.innerHTML = "You are using Desktop";
-                        document.getElementById('webview').disabled = true;
-                         document.getElementById('webview').hidden= false;
-		}
-	</script>
+
 		<div class="social-container">
 			<a href="https://earth.google.com/web/" aria-label="Calendar"><i class="far fa-calendar-alt"></i></a>
 			<a href="https://www.linkedin.com/signup" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -117,8 +106,19 @@
 	<div class="quicklink-section">
 	<a class="quicklinks-mobile" href="javascript:animatedcollapse.toggle('Collapse1')">
 	<script type="text/javascript">animatedcollapse.addDiv("Collapse1", "fade=1");</script>
-	<div class="quicklinks-mobile-title parents"><button type="submit" style="display:none;" class="webview" id="webview" onclick="location.href='/login/'">change view</button></div></a>
-
+	<div class="quicklinks-mobile-title parents"><button type="submit" class="webview" id="webview" onclick="location.href='/login/'">change view</button></div></a>
+           <script type="text/javascript">
+		var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+		//var element = document.getElementById('text');
+		if (isMobile) {
+  			//element.innerHTML = "You are using Mobile";
+                        document.getElementById('webview').style.display= "block";
+		} else {
+			//element.innerHTML = "You are using Desktop";
+                        document.getElementById('webview').style.display = "none";
+                        // document.getElementById('webview').hidden= false;
+		}
+	</script>
 
     </div>
 

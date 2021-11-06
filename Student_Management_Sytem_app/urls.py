@@ -7,7 +7,7 @@ from . import HodViews, StaffViews, StudentViews
 urlpatterns = [
 #path('',views.index,name='index'),
 path('',views.home,name='home'),
-path('register',views.register,name='register'),
+path('register/',views.register,name='register'),
 path('DoRegister/',views.DoRegister,name='DoRegister'),
 path('reset_password/',views.reset_password,name='reset_password'),
 path('otp_request/',views.otp_request,name='otp_request'),
