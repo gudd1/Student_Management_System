@@ -1,9 +1,9 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head id="head">
+<head>
     <meta charset="UTF-8">
-
+    <subhead id="subhead"></subhead>
     <link rel="stylesheet" type="text/css" href="{% static 'account/home1.css' %}"/>
     <title>Home</title>
     <html xmlns="http://www.w3.org/1999/xhtml" lang="en" style="height: 100%;"><head>
@@ -105,20 +105,26 @@
 	<div class="quicklink-section">
 	<a class="quicklinks-mobile" href="javascript:animatedcollapse.toggle('Collapse1')">
 	<script type="text/javascript">animatedcollapse.addDiv("Collapse1", "fade=1");</script>
-	<div class="quicklinks-mobile-title parents"><button type="submit" class="webview" id="webview" onclick="Viewchange()" value="view web version">view web version</button></div></a>
+	<div class="quicklinks-mobile-title parents"><button type="submit" class="webview" id="webview" onclick="changeView();" value="view web version">view web version</button></div></a>
+        <button type="button" name="save" id="save" value="save" onclick="execute();" style="margin-left:10ch;alignment: center;" >save </button>
+
            <script type="text/javascript">
+
 		var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 		//var element = document.getElementById('text');
 		if (isMobile) {
   			//element.innerHTML = "You are using Mobile";
                         document.getElementById('webview').style.display= "block";
-                        document.getElementById('webview').value="view web version";
+                        //document.getElementById('webview').value="view web version";
 		} else {
 			//<script type="text/javascript">
-                        document.getElementById('webview').style.display = "none";
+                        document.getElementById('webview').style.display = "block";
                         // document.getElementById('webview').hidden= false;
 		}
-	</script>
+
+
+
+		</script>
 
 
     </div>
@@ -245,7 +251,7 @@ $('.slideshow').cycle('pause');
 
         <div class="pom-container"><div class="home-section-title">A High School Preparatory School Where You Discover Yourself.</div>
 <div class="page-divider">
-	<img src="../static/account/601X592.jpg" alt="" style="width:74px;height:74px" alt="">
+	<img src="../static/account/sems.jpeg" alt="" style="width:74px;height:74px" alt="">
 </div>
 
 <div class="home-box-quicklinks-container">
@@ -297,7 +303,7 @@ $('.slideshow').cycle('pause');
 </div><div class="pom-container"><div class="home-section-title">Stay Connected</div>
 <div class="page-divider">
     <div class="third">
-        <img src="../static/account/601X592.jpg" alt="" style="width:74px;height:74px"></div>
+        <img src="../static/account/sems.jpeg" alt="" style="width:74px;height:74px"></div>
 </div>
 
 <div class="home-stayconnected-mobile">
@@ -338,7 +344,7 @@ $('.slideshow').cycle('pause');
 	<img src="../static/account/indian1.jpg" alt="SEMS High School Building">
 </div><div class="pom-container"><div class="home-section-title"></div>
 <div class="page-divider">
-	<img src="../static/account/601X592.jpg" alt="" style="width:74px;height:74px" alt="">
+	<img src="../static/account/sems.jpeg" alt="" style="width:74px;height:74px" alt="">
 </div>
 <div class="didYouKnow-container">	<div class="didYouKnow-section">		<div class="didYouKnow-title">Academics</div>		<img src="https://tb2cdn.schoolwebmasters.com/accnt_17549/site_399447/Graphics/graphic_home_Academics.png" class="" alt="graduation cap icon"> 		<div class="didYouKnow-number">80%</div>		<div class="didYouKnow-fact">students of each class get excellent grade</div>	</div>	<div class="didYouKnow-section">		<div class="didYouKnow-title">Athletics</div>		<img src="https://tb2cdn.schoolwebmasters.com/accnt_17549/site_399447/Graphics/graphic_home_Service.png" class="" alt="Cross in heart icon"> 		<div class="didYouKnow-number">83%</div>		<div class="didYouKnow-fact">of students play a Varsity sport</div>	</div>	<div class="didYouKnow-section">		<div class="didYouKnow-title">Fine Arts</div>		<img src="https://tb2cdn.schoolwebmasters.com/accnt_17549/site_399447/Graphics/graphic_home_FineArts.png" class="" alt="apple icon"> 		<div class="didYouKnow-number">70%</div>		<div class="didYouKnow-fact">of students participate in the fine arts and drama productions</div>	</div>	<div class="didYouKnow-section">		<div class="didYouKnow-title">Service</div>		<img src="https://tb2cdn.schoolwebmasters.com/accnt_17549/site_399447/Graphics/graphic_home_Service.png" class="" alt="dove carrying olive branch icon"> 		<div class="didYouKnow-number">98%</div>		<div class="didYouKnow-fact">students excell in their career after joining SEMS</div>	</div>
 <!---</div><div class="pom-container"><script src="/assets/js/jquery.magnific-popup.min.js" type="text/javascript" lang="Javascript"></script>
@@ -440,20 +446,28 @@ function googleTranslateElementInit() {
 
 <!---<iframe scrolling="no" frameborder="0" allowtransparency="true" src="https://platform.twitter.com/widgets/widget_iframe.06c6ee58c3810956b7509218508c7b56.html?origin=https%3A%2F%2Fwww.echs.com" title="Twitter settings iframe" style="display: none;"></iframe><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" width="20" height="20" alt="Google Translate"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><iframe frameborder="0" class="goog-te-menu-frame skiptranslate" title="Language Translate Widget" style="visibility: visible; box-sizing: content-box; width: 1046px; height: 263px; display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe"></iframe><iframe id="universal_pixel_7xzp3i3" height="0" width="0" style="display:none;" src="https://insight.adsrvr.org/track/up?adv=nl9n8le&amp;ref=https%3A%2F%2Fwww.echs.com%2F&amp;upid=7xzp3i3&amp;upv=1.1.0" title="TTD Universal Pixel"></iframe>--->
 </body>
-	<script type="text/javascript">
-			function Viewchange()
-			{
-			var view=document.getElementById('webview').value
-			if (view=="view web version"){
-			    var element = document.getElementById('head');
-			    element.innerHTML = "<meta http-equiv="X-UA-Compatible" content="IE=edge">
-                <meta content="width=device-width, initial-scale=1" name="viewport">";
+
+</html>
+
+<script type="text/javascript">
+function execute(e){
+             print();}
+             </script>
+<script type="text/javascript">
+  function changeView(e){
+
+
+
+
+			if (document.getElementById('webview').innerHTML=="view web version"){
+
+
+			    document.getElementById('subhead').innerHTML = "<meta http-equiv='X-UA-Compatible' content='IE=edge'>"
+                +"<meta content='width=device-width, initial-scale=1' name='viewport'>"
                 document.getElementById('webview').innerHTML="view mobile version";
                 }
-            else if(view=="view mobile version){
+            else{
                  document.getElementById('webview').innerHTML="view web version";
                  }
 			}
-		</script>
-</html>
-
+	</script>
