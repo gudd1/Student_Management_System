@@ -572,6 +572,7 @@ def student_report_card(request, student_id):
     #return render(request, "staff_template/student_report_card.html", context)
 
 def session_examtype(request):
+    print("inside sessin_examtype")
     form =SessionExamtypeForm()
     #examtypes={'annual':'ANNUAL','half_yearly':'HALF YEARLY','test':'TEST'}
     examtypes=["ANNUAL","HALF YEARLY","TEST"]
@@ -597,6 +598,18 @@ def class_list(request):
           test=form.cleaned_data.get('examtype')
           request.session["session_yr_id"]=session_yr_id
           request.session['exam_type']=test
+          print("here1")
+
+
+          session_yr = SessionYearModel.objects.get(id=session_yr_id)
+          print("here3")
+          print(session_yr)
+          start_yr = session_yr.session_start_year.year
+          end_yr = session_yr.session_end_year.year
+          year = str(start_yr) + "-" + str(end_yr)
+          print(year)
+
+          request.session['year'] = year
 
        '''print("form is valid",session_yr_id,test)
            session_yr = SessionYearModel.objects.get(id=session_yr_id)
@@ -615,11 +628,29 @@ def class_list(request):
 
 
 def student_list(request, id):
+    print("inside_student list")
+
     print(id)
     request.session['class_id'] = id
     students = Students.objects.filter(course_id=id)
     for student in students:
         print(student.admin.first_name)
+
+    teacher_id = request.session['_auth_user_id']
+    teacher = CustomUser.objects.get(id=teacher_id)
+    print("sl1")
+    course_id = request.session['class_id']
+    print("sl2")
+    course = Courses.objects.get(id=course_id)
+    print("sl3")
+    subjects = Subjects.objects.filter(course_id=course_id)
+    print("sl4")
+
+    test = request.session['exam_type']
+
+    teacher_name = teacher.first_name + " " + teacher.last_name
+    request.session['teacher_name'] = teacher_name
+    request.session['class'] = course.course_name
 
     return render(request, 'staff_template/student_list.html', {'students': students})
 
@@ -638,7 +669,7 @@ def check_ifsaved(request):
        student_userid = student_id.username
        course = request.session['class']
        create_primary_key = year + course + student_userid + exam_type
-       print(create_primary_key)
+       print("key:",create_primary_key)
        id_exist = StudentsResult.objects.filter(id=create_primary_key).first()
        if id_exist != None:
           return HttpResponse(True)
@@ -666,19 +697,28 @@ def delete_report(request):
 
 
 def edit_report_card(request,student_id):
+    for key,value in request.session.items():
+        print('{} => {}'.format(key,value))
     print("inside edit_report_card",student_id)
 
     student = CustomUser.objects.get(id=student_id)
+    print("check1")
     student_name = student.first_name + " " + student.last_name
     year = request.session['year']
+    print(year)
+    print("check1.5")
     course_id = Courses.objects.get(id=request.session['class_id'])
+    print("check2")
 
     exam_type = request.session['exam_type']
+    print("check2.5")
     student_userid = student.username
     course = request.session['class']
+    print("check2.7")
     create_primary_key = year + course + student_userid + exam_type
     print(create_primary_key)
     id_exist = StudentsResult.objects.filter(id=create_primary_key).first()
+    print("check3")
     if id_exist != None:
         print("customer_exist")
         jsonDec = json.decoder.JSONDecoder()
@@ -724,6 +764,8 @@ def edit_report_card(request,student_id):
         }
 
         return render(request,"staff_template/edit_report.html",context)
+    else:
+        print("customer doesnot exist")
     return render(request, "staff_template/edit_report.html")
 
 
