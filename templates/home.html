@@ -105,7 +105,7 @@
 	<div class="quicklink-section">
 	<a class="quicklinks-mobile" href="javascript:animatedcollapse.toggle('Collapse1')">
 	<script type="text/javascript">animatedcollapse.addDiv("Collapse1", "fade=1");</script>
-	<div class="quicklinks-mobile-title parents"><button type="submit" class="webview" id="webview" onclick="changeView();" value="view web version">view web version</button></div></a>
+	<div class="quicklinks-mobile-title parents"><button type="submit" class="webview" id="webview" onclick="changeView();" value="view mobile version">view mobile version</button></div></a>
 
            <script type="text/javascript">
 
@@ -455,15 +455,17 @@ function googleTranslateElementInit() {
 
 
 
-			if (document.getElementById('webview').innerHTML=="view web version"){
+			if (document.getElementById('webview').innerHTML=="view mobile version"){
 
 
 			    document.getElementById('subhead').innerHTML = "<meta http-equiv='X-UA-Compatible' content='IE=edge'>"
                 +"<meta content='width=device-width, initial-scale=1' name='viewport'>"
-                document.getElementById('webview').innerHTML="view mobile version";
+                document.getElementById('webview').innerHTML="view web version";
                 }
             else{
-                 document.getElementById('webview').innerHTML="view web version";
+                 document.getElementById('webview').innerHTML="view mobile version";
+                 document.getElementById('subhead').innerHTML = "<meta http-equiv='X-UA-Compatible' content='IE=edge'>"
+                
                  }
 			}
 	</script>
