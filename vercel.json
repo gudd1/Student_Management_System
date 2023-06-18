@@ -9,5 +9,8 @@
       "src": "/(.*)",
       "dest": "Student_Mangement_System/wsgi.py"
     }
-  ]
+  ],
+  {
+  "framework": "null"
+}
 }
