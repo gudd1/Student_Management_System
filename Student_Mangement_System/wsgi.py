@@ -19,4 +19,4 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Student_Mangement_System.settin
 '''if settings.DEBUG:
     app = StaticFilesHandler(get_wsgi_application())
 else:'''
-application = get_wsgi_application()
+app = get_wsgi_application()
