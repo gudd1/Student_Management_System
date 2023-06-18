@@ -17,6 +17,6 @@ from django.contrib.staticfiles.handlers import StaticFilesHandler
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Student_Mangement_System.settings')
 '''if settings.DEBUG:
-    application= StaticFilesHandler(get_wsgi_application())
+    app = StaticFilesHandler(get_wsgi_application())
 else:'''
 application = get_wsgi_application()
